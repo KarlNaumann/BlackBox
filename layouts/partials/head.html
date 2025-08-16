@@ -14,10 +14,7 @@
 {{ template "_internal/google_analytics.html" . }}
 
 {{ $css := resources.Match "css/*.css" | resources.Concat "css/bundle.css" }}
-{{ range $css }}
-  {{ $styles := . | minify | fingerprint }}
-  <link rel="stylesheet" href="{{ $styles.Permalink }}">
-{{ end }}
+<link rel="stylesheet" href="{{ $styles.Permalink }}">
 <!-- Theme CSS files are automatically loaded via Hugo's resource pipeline -->
 
 <!-- Icons -->
