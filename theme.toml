@@ -1,6 +1,6 @@
 name = "BlackBox"
 license = "MIT"
-licenselink = "https://github.com/karlnaumann/blackbox/blob/main/LICENSE"
+licenselink = "https://github.com/KarlNaumann/BlackBox/blob/main/LICENSE"
 description = "A modern, minimalist Hugo theme designed for personal websites, portfolios, and blogs. Features a clean, dark design with excellent typography and responsive layout."
 homepage = "https://github.com/KarlNaumann/BlackBox"
 tags = ["blog", "minimal", "responsive", "personal", "portfolio", "dark", "typography", "academic", "professional"]
