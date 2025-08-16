@@ -1,0 +1,19 @@
+/* Local font fallbacks for fast loading */
+/* These fonts are already installed on most systems and look very similar to IBM Plex */
+
+/* For systems that have IBM Plex fonts installed locally */
+@font-face {
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('IBM Plex Sans'), local('IBMPlexSans');
+}
+
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('IBM Plex Mono'), local('IBMPlexMono');
+}

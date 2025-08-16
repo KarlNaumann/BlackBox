@@ -1,0 +1,88 @@
+baseURL = 'https://example.com'
+languageCode = 'en-us'
+title = 'Your Site Title'
+theme = ["blackbox"]
+
+[markup.goldmark.renderer]
+unsafe = true # Allow HTML in md files
+
+[params]
+contentTypeName = "posts"
+showMenuItems = 5
+showLanguageSelector = false
+fullWidthTheme = false
+centerTheme = true
+
+# if your resource directory contains an image called `cover.(jpg|png|webp)`,
+# then the file will be used as a cover automatically.
+# With this option you don't have to put the `cover` param in a page's front-matter.
+autoCover = true
+
+# set post to show the last updated
+# If you use git, you can set `enableGitInfo` to `true` and then post will automatically get the last updated
+showLastUpdated = false
+
+# Provide a string as a prefix for the last update date. By default, it looks like this: 2020-xx-xx [Updated: 2020-xx-xx] :: Author
+updatedDatePrefix = "Updated"
+
+# whether to show a page's estimated reading time
+# readingTime = false # default
+
+# whether to show a table of contents
+# can be overridden in a page's front-matter
+# Toc = false # default
+
+# set title for the table of contents
+# can be overridden in a page's front-matter
+# TocTitle = "Table of Contents" # default
+
+[languages]
+[languages.en]
+languageName = "English"
+title = "Your Site Title"
+
+[languages.en.params]
+subtitle = "Your site subtitle"
+owner = "Your Name"
+keywords = "your, keywords, here"
+copyright = "2025 Your Name"
+menuMore = "Show more"
+readMore = "Read more"
+readOtherPosts = "Read other posts"
+newerPosts = "Newer posts"
+olderPosts = "Older posts"
+missingContentMessage = "Page not found..."
+missingBackButtonLabel = "Back to home page"
+minuteReadingTime = "min read"
+words = "words"
+
+[languages.en.params.logo]
+logoText = "Your Site Name"
+logoHomeLink = "/"
+
+    [languages.en.menu]
+      [[languages.en.menu.main]]
+        identifier = "about"
+        name = "/ about"
+        url = "/about"
+        weight = 1
+      [[languages.en.menu.main]]
+        identifier = "projects"
+        name = "/ projects"
+        url = "/projects"
+        weight = 2
+      [[languages.en.menu.main]]
+        identifier = "publications"
+        name = "/ publications"
+        url = "/publications"
+        weight = 3
+      [[languages.en.menu.main]]
+        identifier = "posts"
+        name = "/ posts"
+        url = "/posts"
+        weight = 4
+      [[languages.en.menu.main]]
+        identifier = "contact"
+        name = "/ contact"
+        url = "/contact"
+        weight = 5 

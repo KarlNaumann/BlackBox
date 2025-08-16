@@ -1,0 +1,13 @@
+name = "Blackbox"
+license = "MIT"
+licenselink = "https://github.com/karlnaumann/blackbox/blob/main/LICENSE"
+description = "A modern, minimalist Hugo theme designed for personal websites, portfolios, and blogs. Features a clean, dark design with excellent typography and responsive layout."
+homepage = "https://github.com/KarlNaumann/BlackBox"
+tags = ["blog", "minimal", "responsive", "personal", "portfolio", "dark", "typography", "academic", "professional"]
+features = ["blog", "responsive", "minimal", "dark-theme", "typography", "portfolio"]
+min_version = "0.80.0"
+demo = "https://karlnaumann.com"
+
+[author]
+  name = "Karl Naumann-Woleske"
+  homepage = "https://karlnaumann.com"

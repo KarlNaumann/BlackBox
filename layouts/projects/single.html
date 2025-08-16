@@ -1,0 +1,45 @@
+{{ define "main" }}
+<div class="min-h-[calc(100vh-12rem)] flex flex-col">
+  <section class="hello flex flex-col justify-center py-16">
+    <div class="w-full px-4 lg:px-8">
+      
+      <h1 class="text-6xl font-bold tracking-tighter mb-8 text-left">
+        <span class="text">{{ .Title }}</span>
+        <span class="bar-accent"></span>
+      </h1>
+
+      <div class="space-y-6">
+        <div>
+          {{ if .Params.status }}
+          <span class="font-bold">Status: {{ .Params.status }}</span>
+          {{ end }}
+          {{ if and .Params.status .Params.role }}
+          <span class="mx-2">·</span>
+          {{ end }}
+          {{ if .Params.role }}
+          <span class="font-bold">Role: {{ .Params.role }}</span>
+          {{ end }}
+          {{ if and .Params.role .Params.externalLink }}
+          <span class="mx-2">·</span>
+          {{ end }}
+          {{ if .Params.externalLink }}
+          <span class="font-bold"><a href="{{ .Params.externalLink }}" class="underline" target="_blank" rel="noopener noreferrer">External Link</a></span>
+          {{ end }}
+        </div>
+
+        <div>
+          <div class="text-lg">
+            {{ .Content }}
+          </div>
+        </div>
+
+        <div class="mt-8">
+          <a href="/projects/" class="inline-block mb-8 underline">
+            ← Back to Projects
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+{{ end }} 

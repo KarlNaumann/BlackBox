@@ -1,0 +1,20 @@
+{{ $items := . }}
+<div class="timeline">
+  {{ range $items }}
+  <div class="timeline-item">
+    <div class="timeline-marker"></div>
+    <div class="timeline-content">
+      <div class="timeline-header">
+        <div class="timeline-year">{{ .year }}</div>
+        <div class="timeline-title">{{ .title | markdownify }}</div>
+        <div class="timeline-subtitle">{{ .subtitle }}</div>
+      </div>
+      {{ if .description }}
+      <div class="timeline-description">
+        {{ .description | markdownify }}
+      </div>
+      {{ end }}
+    </div>
+  </div>
+  {{ end }}
+</div> 

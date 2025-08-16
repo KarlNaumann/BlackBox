@@ -1,0 +1,237 @@
+/* Custom styles to match src design */
+
+/* Body layout */
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+/* Main content layout */
+.main-content {
+  flex: auto;
+  min-width: 0;
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+@media (min-width: 1024px) {
+  .main-content {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* Typography improvements */
+.text {
+  color: var(--foreground);
+}
+
+/* Hover effects */
+.hover\:text:hover {
+  color: var(--accent);
+}
+
+/* Bar styles for headings */
+.bar {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: var(--foreground);
+  margin-top: 0.5rem;
+}
+
+.bar-accent {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: var(--foreground);
+  margin-top: 0.5rem;
+}
+
+.bar-thin {
+  display: block;
+  width: 100%;
+  height: 1px;
+  background-color: var(--foreground);
+  margin-top: 0.5rem;
+}
+
+/* Thinner horizontal rules for markdown --- */
+hr {
+  border: none;
+  height: 0.5px;
+  background-color: var(--foreground);
+  opacity: 0.5;
+  margin: 2rem 0;
+}
+
+/* Container styles */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding: 0 2rem;
+  }
+}
+
+/* Wrap and column styles */
+.wrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.col-10 {
+  flex: 0 0 83.333333%;
+  max-width: 83.333333%;
+}
+
+.col-offset-1 {
+  margin-left: 8.333333%;
+}
+
+/* Responsive utilities */
+@media (max-width: 768px) {
+  .col-10 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  
+  .col-offset-1 {
+    margin-left: 0;
+  }
+}
+
+/* Mobile Menu Styles */
+.mobile-menu {
+  position: relative;
+  display: none; /* Hidden by default, shown on mobile */
+}
+
+.mobile-menu__trigger {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+}
+
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 20px;
+  height: 16px;
+}
+
+.hamburger__line {
+  width: 100%;
+  height: 2px;
+  background-color: var(--foreground);
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+.hamburger__x {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 16px;
+  color: var(--foreground);
+  font-size: 18px;
+  font-weight: normal;
+}
+
+.mobile-menu__dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: var(--background);
+  border: 1px solid var(--foreground);
+  border-radius: 4px;
+  min-width: 200px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.mobile-menu__dropdown.open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.mobile-menu__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.mobile-menu__list > li {
+  margin: 0;
+}
+
+.mobile-menu__link {
+  display: block;
+  padding: 12px 16px;
+  color: var(--foreground);
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+  border-bottom: 1px solid rgba(var(--foreground-rgb), 0.1);
+}
+
+.mobile-menu__link:hover {
+  background-color: rgba(var(--foreground-rgb), 0.05);
+  color: var(--accent);
+}
+
+.mobile-menu__divider {
+  padding: 8px 16px;
+}
+
+.mobile-menu__divider hr {
+  margin: 0;
+  opacity: 0.3;
+}
+
+/* Show mobile menu on mobile devices */
+@media (max-width: 768px) {
+  .header__nav {
+    display: none;
+  }
+  
+  .mobile-menu {
+    display: block;
+  }
+}
+
+/* Ensure only the main navigation is visible on desktop */
+@media (min-width: 769px) {
+  .header__mobile-nav {
+    display: none;
+  }
+}
+
+/* Homepage text justification */
+.index-content {
+  text-align: justify;
+} 

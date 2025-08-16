@@ -1,0 +1,72 @@
+{{ define "main" }}
+<article class="publication-single">
+  <header class="publication-header mb-8">
+    <h1 class="text-4xl font-bold tracking-tighter mb-4">
+      {{ .Title }}
+    </h1>
+
+    <!-- Publication metadata -->
+    <div class="publication-meta text-sm text-neutral-400 space-y-2">
+        {{ with .Params.authors }}
+        <div class="authors text-lg text-neutral-300 mb-4">
+            <strong>Authors:</strong> {{ delimit . ", " }}
+        </div>
+        {{ end }}
+        {{ with .Params.Date }}
+      <div class="publish-date">
+        <strong>Published:</strong> {{ time.Format "2006" . }}
+      </div>
+      {{ end }}
+      {{ with .Params.publication_types }}
+      <div class="type">
+        <strong>Type:</strong> {{ delimit . ", " }}
+      </div>
+      {{ end }}
+      {{ with .Params.publication }}
+      <div class="venue">
+        <strong>Venue:</strong> {{ . | markdownify }}
+      </div>
+      {{ end }}
+      {{ with .Params.doi }}
+      <div class="doi">
+        <strong>DOI:</strong> <a href="https://doi.org/{{ . }}" class="text-accent hover:underline" target="_blank" rel="noopener">{{ . }}</a>
+      </div>
+      {{ end }}
+      {{ with .Params.links }}
+      <div class="links">
+        <strong>Links:</strong>
+        {{ range . }}
+        <a href="{{ .url }}" class="text-accent hover:underline ml-2" target="_blank" rel="noopener">{{ .name }}</a>
+        {{ end }}
+      </div>
+      {{ end }}
+    </div>
+  </header>
+
+  <!-- Abstract -->
+  {{ with .Params.abstract }}
+  <section class="abstract mb-8">
+    <h2 class="text-2xl font-bold mb-4">
+      Abstract
+      <span class="bar"></span>
+    </h2>
+    <div class="text-lg leading-relaxed">
+      {{ . }}
+    </div>
+  </section>
+  {{ end }}
+
+  <!-- BibTeX citation -->
+  {{ if (fileExists (printf "content/publications/%s/cite.bib" .File.ContentBaseName)) }}
+  <section class="citation mt-8">
+    <h2 class="text-2xl font-bold mb-4">
+      Citation
+      <span class="bar"></span>
+    </h2>
+    <div class="bg-neutral-800 p-4 rounded border border-neutral-700">
+      <pre class="text-xs overflow-x-auto"><code>{{ readFile (printf "content/publications/%s/cite.bib" .File.ContentBaseName) }}</code></pre>
+    </div>
+  </section>
+  {{ end }}
+</article>
+{{ end }} 

@@ -1,0 +1,112 @@
+{{ define "main" }}
+<div class="min-h-[calc(100vh-12rem)] flex flex-col">
+  <section class="hello flex flex-col justify-center py-16">
+    <div class="w-full px-4 lg:px-8">
+      <h1 class="text-6xl font-bold tracking-tighter mb-8 text-left">
+        <span class="text">{{ .Title }}</span>
+        <span class="bar-accent"></span>
+      </h1>
+
+      <div class="space-y-6">
+        <div class="text-lg">
+          {{ .Content }}
+        </div>
+      </div>
+
+            <!-- Working Papers Section -->
+      <div class="mt-12">
+        <h2 class="text-3xl font-bold tracking-tighter mb-6 text-left">
+          Working Papers
+          <span class="bar-thin"></span>
+        </h2>
+        <div class="space-y-6">
+          {{ range where .Site.RegularPages "Section" "publications" }}
+            {{ if in .Params.publication_types "manuscript" }}
+              <article class="publication-item">
+                <h3 class="text-xl font-bold mb-0">
+                  <a href="{{ .Permalink }}" class="hover:text-[var(--accent)] transition-colors duration-200">{{ .Title }}</a>
+                </h3>
+                <div class="text-xs text-neutral-400 mb-0">
+                  {{ with .Params.authors }}
+                    {{ delimit . ", " }}
+                  {{ end }}
+                  <br>
+                  {{ with .Date }}
+                  {{ .Format "2006" }}
+                  {{ end }}
+                </div>
+
+                </article>
+              {{ end }}
+            {{ end }}
+          </div>
+        </div>
+
+      <!-- Journal Articles Section -->
+      <div class="mt-12">
+        <h2 class="text-3xl font-bold tracking-tighter mb-6 text-left">
+          Journal Articles
+          <span class="bar-thin"></span>
+        </h2>
+        <div class="space-y-6">
+          {{ range where .Site.RegularPages "Section" "publications" }}
+            {{ if in .Params.publication_types "article-journal" }}
+              <article class="publication-item">
+                <h3 class="text-xl font-bold mb-0">
+                  <a href="{{ .Permalink }}" class="hover:text-[var(--accent)] transition-colors duration-200">{{ .Title }}</a>
+                </h3>
+                <div class="text-xs text-neutral-400 mb-0">
+                  {{ with .Params.authors }}
+                    {{ delimit . ", " }}
+                  {{ end }}
+                  <br>
+                  {{ with .Date }}
+                    {{ .Format "2006" }}
+                  {{ end }}
+                  {{ with .Params.publication }}
+                    • {{ . | markdownify }}
+                  {{ end }}
+                </div>
+              </article>
+            {{ end }}
+          {{ end }}
+        </div>
+      </div>
+
+      <!-- Other Publications Section -->
+      <div class="mt-12">
+        <h2 class="text-3xl font-bold tracking-tighter mb-6 text-left">
+          Other Publications
+          <span class="bar-thin"></span>
+        </h2>
+        <div class="space-y-6">
+          {{ range where .Site.RegularPages "Section" "publications" }}
+            {{ if and (not (in .Params.publication_types "manuscript")) (not (in .Params.publication_types "article-journal")) }}
+              <article class="publication-item">
+                <h3 class="text-xl font-bold">
+                  <a href="{{ .Permalink }}" class="hover:text-[var(--accent)] transition-colors duration-200">{{ .Title }}</a>
+                </h3>
+                <div class="text-xs text-neutral-400 mb-0">
+                  {{ with .Params.authors }}
+                    {{ delimit . ", " }}
+                  {{ end }}
+                  <br>
+                  {{ with .Date }}
+                    {{ .Format "2006" }}
+                  {{ end }}
+                  {{ with .Params.publication_types }}
+                    • {{ index . 0 | title }}
+                  {{ end }}
+                  {{ with .Params.publication }}
+                    • {{ . | markdownify }}
+                  {{ end }}
+                </div>
+              </article>
+            {{ end }}
+          {{ end }}
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+{{ end }} 

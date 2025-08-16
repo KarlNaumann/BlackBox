@@ -1,0 +1,28 @@
+<div class="mobile-menu">
+  <button class="mobile-menu__trigger" aria-label="Toggle mobile menu">
+    <span class="hamburger">
+      <span class="hamburger__line"></span>
+      <span class="hamburger__line"></span>
+      <span class="hamburger__line"></span>
+    </span>
+  </button>
+  <nav class="mobile-menu__dropdown">
+    <ul class="mobile-menu__list">
+      {{ range $.Site.Menus.main }}
+        {{ if not .HasChildren }}
+          <li><a href="{{ .URL }}" class="mobile-menu__link">{{ .Name }}</a></li>
+        {{ end }}
+      {{ end }}
+      {{ if and $.Site.Params.showLanguageSelector (len $.Site.Home.AllTranslations) }}
+        <li class="mobile-menu__divider">
+          <hr />
+        </li>
+        {{ range $.Site.Home.AllTranslations }}
+          <li>
+            <a href="{{ .Permalink }}" class="mobile-menu__link">{{ .Language.LanguageName }}</a>
+          </li>
+        {{ end }}
+      {{ end }}
+    </ul>
+  </nav>
+</div>

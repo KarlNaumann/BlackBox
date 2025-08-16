@@ -1,0 +1,27 @@
+<div class="about-section">
+  <div class="section-header w-full text-left py-4">
+    <h2 class="text-2xl font-bold mb-2">{{ .Title }}</h2>
+    <span class="bar-thin"></span>
+  </div>
+  
+    <div class="section-content py-4" id="section-{{ .File.ContentBaseName }}">
+    {{ if eq .Params.type "timeline" }}
+      {{ $educationData := .Site.Data.education }}
+      {{ if $educationData }}
+        {{ partial "timeline.html" $educationData }}
+      {{ else }}
+        <p>Timeline data could not be loaded. Data: {{ .Site.Data.education }}</p>
+      {{ end }}
+    {{ else if eq .Params.type "skills" }}
+      {{ partial "skills-grid.html" . }}
+    {{ else if eq .Params.type "list" }}
+      <div class="prose prose-invert max-w-none">
+        {{ .Content | markdownify }}
+      </div>
+    {{ else }}
+      <div class="prose prose-invert max-w-none">
+        {{ .Content | markdownify }}
+      </div>
+    {{ end }}
+  </div>
+</div> 

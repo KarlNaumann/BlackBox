@@ -1,0 +1,31 @@
+<div class="skills-grid">
+  {{ $content := .Content }}
+  {{ $lines := split $content "\n" }}
+  
+  {{ range $lines }}
+    {{ if hasPrefix . "**" }}
+      {{ $skillType := trim (index (split . "**") 1) "**" }}
+      {{ $skillType = trim $skillType ":" }}
+      <div class="skill-category mb-4">
+        <h3 class="text-lg font-semibold mb-2">{{ $skillType }}</h3>
+        <div class="skill-items">
+          {{ $nextLines := slice }}
+          {{ $i := add (index (findRE "\\*\\*.*\\*\\*" $content) 0) 1 }}
+          {{ range $lines }}
+            {{ if gt . $i }}
+              {{ $nextLines = append $nextLines . }}
+            {{ end }}
+          {{ end }}
+          
+          {{ range $nextLines }}
+            {{ if hasPrefix . "**" }}
+              {{ break }}
+            {{ else if ne . "" }}
+              <div class="skill-item">{{ . | markdownify }}</div>
+            {{ end }}
+          {{ end }}
+        </div>
+      </div>
+    {{ end }}
+  {{ end }}
+</div> 

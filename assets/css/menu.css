@@ -1,0 +1,34 @@
+.navigation-menu {
+  display: flex;
+  align-items: center;
+}
+
+.navigation-menu__inner {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 1rem;
+}
+
+.navigation-menu__inner > li {
+  margin: 0;
+}
+
+.nav-link {
+  color: var(--foreground);
+  text-decoration: none;
+  transition: color 0.2s ease;
+  font-size: 0.875rem;
+  letter-spacing: -0.025em;
+}
+
+.nav-link:hover {
+  color: var(--accent);
+}
+
+@media (max-width: 768px) {
+  .navigation-menu {
+    display: none;
+  }
+}
