@@ -106,6 +106,93 @@ a:hover {
   color: var(--accent);
 }
 
+/* Teaching page specific styling */
+.teaching-page .hello {
+  margin-bottom: 1rem;
+}
+
+.teaching-page h1 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.teaching-list h2 {
+  margin-bottom: 0.5rem;
+  margin-top: 1rem;
+  font-size: 1.1rem;
+}
+
+.teaching-list h2 a {
+  color: var(--foreground);
+  text-decoration: none;
+}
+
+.teaching-list h2 a:hover {
+  color: var(--accent);
+}
+
+.teaching-meta-muted {
+  color: color-mix(in srgb, var(--foreground) 55%, transparent);
+  font-size: 0.875rem;
+}
+
+.teaching-meta-muted a {
+  color: color-mix(in srgb, var(--foreground) 55%, transparent);
+  text-decoration: underline;
+}
+
+.teaching-meta-muted a:hover {
+  color: var(--accent);
+}
+
+.teaching-semesters {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid color-mix(in srgb, var(--foreground) 15%, transparent);
+  max-width: 32rem;
+}
+
+.teaching-semesters h3 {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--foreground) 50%, transparent);
+  margin-bottom: 0.75rem;
+  margin-top: 0;
+}
+
+.teaching-semesters table {
+  width: 100%;
+  border-collapse: collapse;
+  border: none;
+  font-size: 0.875rem;
+  margin: 0;
+}
+
+.teaching-semesters th,
+.teaching-semesters td {
+  border: none;
+  padding: 0;
+}
+
+.teaching-semesters th {
+  padding-bottom: 0.4rem;
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: normal;
+  color: color-mix(in srgb, var(--foreground) 55%, transparent);
+}
+
+.teaching-semesters td {
+  padding: 0.25rem 2.5rem 0.25rem 0;
+  color: color-mix(in srgb, var(--foreground) 85%, transparent);
+}
+
+.teaching-back-link {
+  margin-top: 3.5rem;
+}
+
 button {
   position: relative;
   font: inherit;
