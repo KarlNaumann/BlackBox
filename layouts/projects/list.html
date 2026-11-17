@@ -20,13 +20,11 @@
                 {{ .Description | default .Summary }}
               </div>
               <div class="text-sm mt-1">
-                {{ if .Params.status }}
-                <span class="text-sm">
-                  Status: {{ .Params.status }}
-                {{ end }}
-                {{ if .Params.role }}
-                • Role: {{ .Params.role }}</span>
-                {{ end }}
+                {{ $meta := slice }}
+                {{ with .Params.period }}{{ $meta = $meta | append . }}{{ end }}
+                {{ with .Params.status }}{{ $meta = $meta | append (printf "Status: %s" .) }}{{ end }}
+                {{ with .Params.role }}{{ $meta = $meta | append (printf "Role: %s" .) }}{{ end }}
+                {{ delimit $meta " • " }}
               </div>
             </div>
           </div>
