@@ -34,6 +34,9 @@
                   {{ with .Date }}
                   {{ .Format "2006" }}
                   {{ end }}
+                  {{ with .Params.publication }}
+                    • {{ . | markdownify }}
+                  {{ end }}
                 </div>
 
                 </article>
